@@ -5,5 +5,10 @@ using namespace std;
 
 int main() {
     cout << "Hello, World!" << endl;
+    Graph gr = Graph();
+    while(gr.isOpen){
+        //gr.update();
+        gr.render();
+    }
     return 0;
 }
