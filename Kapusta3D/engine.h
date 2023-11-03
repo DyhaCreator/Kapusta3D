@@ -4,12 +4,5 @@
 
 class Engine {
 public:
-    Graph gr = Graph();
-    int GameCycle(){
-        while(gr.isOpen){
-            //gr.update();
-            gr.render();
-        }
-        return 0;
-    }
+    Graph graph = Graph();
 };

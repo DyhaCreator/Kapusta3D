@@ -6,6 +6,8 @@ using namespace std;
 int main() {
     cout << "Hello, World!" << endl;
     Engine eng = Engine();
-    eng.GameCycle();
+    while (eng.graph.isOpen) {
+        eng.graph.render();
+    }
     return 0;
 }
