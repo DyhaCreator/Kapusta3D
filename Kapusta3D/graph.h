@@ -14,6 +14,17 @@ public:
         this->window.setFramerateLimit(FrameRate);
     }
 
+    void update(){
+        this->isOpen = this->window.isOpen();
+        while(this->window.pollEvent(this->ev)){
+            switch(this->ev.type){
+            case sf::Event::Closed:
+                this->window.close();
+                break;
+            }
+        }
+    }
+
     void render(){
         this->window.clear(sf::Color(50,50,50));
 
