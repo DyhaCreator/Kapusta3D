@@ -5,9 +5,9 @@ using namespace std;
 
 int main() {
     cout << "Hello, World!" << endl;
+    
     Engine eng = Engine();
     while (eng.graph.isOpen) {
-
         eng.graph.update();
         eng.graph.render();
     }

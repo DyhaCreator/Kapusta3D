@@ -2,6 +2,7 @@
 //includes
 #include <iostream>
 //engine modules
+#include "structs/int2.hpp"
 #include "graph.hpp"
 #include "gameObj.hpp"
 
