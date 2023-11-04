@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 
-struct Graph {
+class Graph {
+public:
     int mode = 0;
     bool isOpen = true;
     int Width = 1080;
