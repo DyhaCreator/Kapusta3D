@@ -1,4 +1,4 @@
-class int3{
+struct int3{
     int x;
     int y;
     int z;

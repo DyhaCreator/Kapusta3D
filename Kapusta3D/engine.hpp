@@ -2,8 +2,8 @@
 //includes
 #include <iostream>
 //engine modules
-#include "graph.h"
-#include "gameObj.h"
+#include "graph.hpp"
+#include "gameObj.hpp"
 
 const int _2D = 0;
 const int _3D = 1; 
