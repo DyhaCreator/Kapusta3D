@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     cout << "Hello, World!" << endl;
-    Engine eng = Engine();
+    Engine eng = Engine(_2D);
     while (eng.graph.isOpen) {
         eng.graph.update();
         eng.graph.render();

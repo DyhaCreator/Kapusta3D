@@ -1,17 +1,21 @@
 #include <SFML/Graphics.hpp>
 
-class Graph {
-public:
+struct Graph {
+    int mode = 0;
     bool isOpen = true;
     int Width = 1080;
     int Height = 720;
-    const int FrameRate = 250;
-    const int BOIDS_SIZE = 25;
+    int FrameRate = 250;
     sf::Event ev;
-    sf::RenderWindow window = sf::RenderWindow(sf::VideoMode(Width, Height), "Test Gen");
+    sf::RenderWindow window = sf::RenderWindow(sf::VideoMode(Width, Height), "Window");
 
     Graph() {
         this->window.setFramerateLimit(FrameRate);
+    }
+
+    Graph(int mode) {
+        this->window.setFramerateLimit(FrameRate);
+        this->mode = mode;
     }
 
     void update(){
