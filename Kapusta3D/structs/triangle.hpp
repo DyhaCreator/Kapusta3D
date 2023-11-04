@@ -2,7 +2,11 @@ struct Triangle{
     float3 x;
     float3 y;
     float3 z;
-    Triangle() {}
+    Triangle() {
+        this->x = float3();
+        this->y = float3();
+        this->z = float3();
+    }
     Triangle(float3 x, float3 y, float3 z) {
         this->x = x;
         this->y = y;
