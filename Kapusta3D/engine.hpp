@@ -1,12 +1,16 @@
 #pragma once
 //includes
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 
+#include "errors.hpp"
+
 //settings
 #include "parse_settings.hpp"
-std::string name = ;
+std::string name_of_file_settings = "settings.json";
+std::string name = Name(name_of_file_settings);
 int Width = 500;
 int Height = 500;
 int FrameRate = 30;
