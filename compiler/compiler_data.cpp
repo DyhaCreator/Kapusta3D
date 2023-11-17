@@ -3,8 +3,8 @@
 #include <string>
 
 int main() {
-    std::ofstream out("../data.d");
-    std::ifstream in("../Kapusta3D/settings.json");
+    std::ofstream out("./data.data");
+    std::ifstream in("./Kapusta3D/settings.json");
     std::string input = "";
     std::string a = "";
     while (in >> a) {
