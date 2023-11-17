@@ -2,21 +2,12 @@
 
 class Graph {
 public:
-    int mode = 0;
     bool isOpen = true;
-    int Width = 1080;
-    int Height = 720;
-    int FrameRate = 250;
     sf::Event ev;
-    sf::RenderWindow window = sf::RenderWindow(sf::VideoMode(Width, Height), "Window");
+    sf::RenderWindow window = sf::RenderWindow(sf::VideoMode(Width, Height), name);
 
     Graph() {
         this->window.setFramerateLimit(FrameRate);
-    }
-
-    Graph(int mode) {
-        this->window.setFramerateLimit(FrameRate);
-        this->mode = mode;
     }
 
     void update(){
@@ -32,7 +23,10 @@ public:
 
     void render(){
         this->window.clear(sf::Color(50,50,50));
-
         this->window.display();
+    }
+
+    void drawTriangle(Triangle triangle) {
+
     }
 };
