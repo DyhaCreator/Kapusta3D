@@ -50,3 +50,21 @@ int find_height(std::string name_file) {
     int Height = stoi(W);
     return Height;
 }
+
+int find_frameRate(std::string name_file) {
+    std::string W = "500";
+    std::ifstream in(name_file);
+    if (in.is_open()) {
+        std::string file = "";
+        std::string str = "";
+        while (in >> str) {
+            file += str;
+        }
+        W = file.substr(file.find("FrameRate") + 11);
+        W = W.substr(0, W.find(','));
+    } else {
+        std::cout << "err" << std::endl;
+    }
+    int FrameRate = stoi(W);
+    return FrameRate;
+}

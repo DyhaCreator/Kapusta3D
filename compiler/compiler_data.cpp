@@ -10,10 +10,12 @@ int main() {
     std::string name = Name(name_of_file);
     int Width = find_width(name_of_file);
     int Height = find_height(name_of_file);
+    int FrameRate = find_frameRate(name_of_file);
     out << "struct data{" << std::endl;
     out << "    const std::string Name = " << '"' << name << '"' << ";" << std::endl;
     out << "    const int Width = " << Width<< ";" << std::endl;
     out << "    const int Height = " << Height << ";" << std::endl;
+    out << "    const int FrameRate = " << FrameRate << ";" << std::endl;
     out << "};" << std::endl;
     return 0;
 }
