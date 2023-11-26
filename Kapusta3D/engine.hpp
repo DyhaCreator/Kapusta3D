@@ -11,7 +11,7 @@
 #include "parse_settings.hpp"
 std::string name_of_file_settings = "data.data";
 std::string name = Name(name_of_file_settings);
-int Width = 500;
+int Width = fidn_width(name_of_file_settings);
 int Height = 500;
 int FrameRate = 30;
 
