@@ -12,7 +12,7 @@
 std::string name_of_file_settings = "data.data";
 std::string name = Name(name_of_file_settings);
 int Width = fidn_width(name_of_file_settings);
-int Height = 500;
+int Height = fidn_height(name_of_file_settings);
 int FrameRate = 30;
 
 //engine modules
