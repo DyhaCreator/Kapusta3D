@@ -1,5 +1,5 @@
 struct data{
-    const std::string Name = "";
-    const int Width = 100;
-    const int Height = 100;
+    const std::string Name = "MyApp";
+    const int Width = 920;
+    const int Height = 600;
 };

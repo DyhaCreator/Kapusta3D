@@ -15,7 +15,7 @@ std::string Name(std::string name_file){
     return name;
 }
 
-int fidn_width(std::string name_file) {
+int find_width(std::string name_file) {
     std::string W = "500";
     std::ifstream in(name_file);
     if (in.is_open()) {
@@ -33,7 +33,7 @@ int fidn_width(std::string name_file) {
     return Width;
 }
 
-int fidn_height(std::string name_file) {
+int find_height(std::string name_file) {
     std::string W = "500";
     std::ifstream in(name_file);
     if (in.is_open()) {
