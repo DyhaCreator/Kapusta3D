@@ -8,4 +8,5 @@ rm main.o
 echo "compile data..."
 ./compiler/compiler
 echo "start>"
-./Release/App
+cd Release
+./App
