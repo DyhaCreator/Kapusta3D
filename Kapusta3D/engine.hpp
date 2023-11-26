@@ -8,11 +8,11 @@
 #include "errors.hpp"
 
 //settings
-#include "parse_settings.hpp"
-std::string name_of_file_settings = "data.data";
-std::string name = Name(name_of_file_settings);
-int Width = fidn_width(name_of_file_settings);
-int Height = fidn_height(name_of_file_settings);
+#include "data.hpp"
+data d = data();
+std::string name = d.Name;
+int Width = d.Width;
+int Height = d.Height;
 int FrameRate = 30;
 
 //engine modules

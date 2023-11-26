@@ -10,6 +10,6 @@ int main() {
     while (in >> a) {
         input += a;
     }
-    out << input;
+    std::cout << input << std::endl;
     return 0;
 }
