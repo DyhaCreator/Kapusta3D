@@ -20,12 +20,12 @@ public:
             }
         }
     }
-
-    void render(){
-        this->window.clear(sf::Color(50,50,50));
+    void display() {
         this->window.display();
     }
-
+    void background(color c) {
+        this->window.clear(sf::Color(c.r, c.g, c.b));
+    }
     void drawTriangle(Triangle triangle) {
 
     }

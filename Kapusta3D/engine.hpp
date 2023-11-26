@@ -13,9 +13,10 @@ data d = data();
 std::string name = d.Name;
 int Width = d.Width;
 int Height = d.Height;
-int FrameRate = 30;
+int FrameRate = d.FrameRate;
 
 //engine modules
+#include "structs/color.hpp"
 #include "structs/int2.hpp"
 #include "structs/int3.hpp"
 #include "structs/float2.hpp"
@@ -35,6 +36,7 @@ public:
     Engine() {}
     void update() {
         graph.update();
-        graph.render();
+        graph.background(color(50, 50, 50));
+        graph.display();
     }
 };
