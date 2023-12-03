@@ -3,4 +3,5 @@ struct data{
     const int Width = 920;
     const int Height = 600;
     const int FrameRate = 2500;
+    
 };
