@@ -16,7 +16,7 @@ int main() {
     while (eng.isStarted) {
         eng.update();
         //b1.show();
-        graph.drawText();
+        t1.show();
         graph.display();
     }
     return 0;

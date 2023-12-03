@@ -45,26 +45,16 @@ public:
         this->window.draw(rectangle);
     }
 
-    void drawText() {
+    void drawText(std::string Sfont, std::string Slabel, int Isize, int2 I2pos, color Ccol) {
         sf::Font font;
-
-        font.loadFromFile("fonts/font.otf");
+        font.loadFromFile(Sfont);
         sf::Text text;
-        // select the font
-        text.setFont(font); // font is a sf::Font
-
-        // set the string to display
-        text.setString("Hello world");
-
-        // set the character size
-        text.setCharacterSize(24); // in pixels, not points!
-
-        // set the color
-        text.setFillColor(sf::Color::Red);
-        text.setPosition(20, 20);
-
-        // inside the main loop, between window.clear() and window.display()
-        window.draw(text);
+        text.setFont(font);
+        text.setString(Slabel);
+        text.setCharacterSize(Isize);
+        text.setFillColor(sf::Color(Ccol.r, Ccol.g, Ccol.b));
+        text.setPosition(I2pos.x, I2pos.y);
+        this->window.draw(text);
     }
 
     void drawTriangle(Triangle triangle) {
