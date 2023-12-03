@@ -37,6 +37,13 @@ public:
         return sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
 
+    void drawPixel(int2 pos, color c) {
+        sf::CircleShape point(0.5);
+        point.setPosition(pos.x, pos.y);
+        point.setFillColor(sf::Color(c.r, c.g, c.b));
+        this->window.draw(point);
+    }
+
     void drawRect(int position_x, int position_y, int size_x, int size_y, color c) {
         sf::RectangleShape rectangle(sf::Vector2f(10, 50));
         rectangle.setPosition(sf::Vector2f(position_x, position_y));
