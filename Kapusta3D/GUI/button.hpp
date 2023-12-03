@@ -25,8 +25,27 @@ public:
     Button(void (*func)()) {
         this->isClicked = func;
     }
+    Button(void (*func)(), int2 pos) {
+        this->pos = pos;
+    }
+    Button(void (*func)(), int2 pos, int2 size) {
+        this->pos = pos;
+        this->size = size;
+    }
+    Button(void (*func)(), int x, int y) {
+        this->pos.x = x;
+        this->pos.y = y;
+    }
+    Button(void (*func)(), int x, int y, int sx, int sy) {
+        this->pos = int2(x, y);
+        this->size = int2(sx, sy);
+    }
     Button& setPosition(int2 pos) {
         this->pos = pos;
+        return *this;
+    }
+    Button& setPosition(int x, int y) {
+        this->pos = int2(x, y);
         return *this;
     }
     void show() {
