@@ -1,8 +1,10 @@
 class Button{
+private:
+    void isClk() {}
+    color def = color(200, 200, 200), hover = color(220, 220, 220), pressed = color(255, 255, 255);
 public:
     int2 pos = int2(10, 10);
     int2 size = int2(200, 100);
-    color def = color(200, 200, 200), hover = color(220, 220, 220), pressed = color(255, 255, 255);
     bool isPointed = false;
     bool isClick = false;
     void (*isClicked) ();
@@ -27,18 +29,22 @@ public:
     }
     Button(void (*func)(), int2 pos) {
         this->pos = pos;
+        this->isClicked = func;
     }
     Button(void (*func)(), int2 pos, int2 size) {
         this->pos = pos;
         this->size = size;
+        this->isClicked = func;
     }
     Button(void (*func)(), int x, int y) {
         this->pos.x = x;
         this->pos.y = y;
+        this->isClicked = func;
     }
     Button(void (*func)(), int x, int y, int sx, int sy) {
         this->pos = int2(x, y);
         this->size = int2(sx, sy);
+        this->isClicked = func;
     }
     Button& setPosition(int2 pos) {
         this->pos = pos;
@@ -46,6 +52,32 @@ public:
     }
     Button& setPosition(int x, int y) {
         this->pos = int2(x, y);
+        return *this;
+    }
+    Button& setSize(int2 size) {
+        this->size = size;
+        return *this;
+    }
+    Button& setSize(int x, int y) {
+        this->size = int2(x, y);
+        return *this;
+    }
+    Button& setDefColor(color c) {
+        this->def = c;
+        return *this;
+    }
+    Button& setHoverColor(color c) {
+        this->hover = c;
+        return *this;
+    }
+    Button& setPressedColor(color c) {
+        this->pressed = c;
+        return *this;
+    }
+    Button& setColors(color def, color hover, color pressed) {
+        this->def = def;
+        this->hover = hover;
+        this->pressed = pressed;
         return *this;
     }
     void show() {
