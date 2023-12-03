@@ -5,10 +5,13 @@ private:
 public:
     int2 pos = int2(10, 10);
     int2 size = int2(200, 100);
+    Text label = Text();
     bool isPointed = false;
     bool isClick = false;
     void (*isClicked) ();
-    Button() {}
+    Button() {
+        label.setPosition(pos);
+    }
     Button(int2 pos) {
         this->pos = pos;
     }
@@ -35,6 +38,10 @@ public:
         this->pos = pos;
         this->size = size;
         this->isClicked = func;
+        label.setPosition(int2(pos.x + size.x / 2, pos.y + size.y / 2))
+             .setCentredX(Text::CENTER())
+             .setCentredY(Text::CENTER())
+             .setColor(color::black());
     }
     Button(void (*func)(), int x, int y) {
         this->pos.x = x;
@@ -91,6 +98,7 @@ public:
         } else {
             graph.drawRect(pos, size, def);
         }
+        label.show();
         update();
     }
 private:

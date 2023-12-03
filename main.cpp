@@ -11,13 +11,13 @@ int main() {
     cout << "Hello, World!" << endl;
     Engine eng = Engine();
 
-    //Button b1 = Button(&b1IsClicked, int2(20, 20), int2(200, 100));
-    Text t1 = Text();
-    t1.setColor(color::green());
+    Button b1 = Button(&b1IsClicked, int2(20, 20), int2(200, 100));
+    //Text t1 = Text();
+    //t1.setColor(color::green());
     while (eng.isStarted) {
         eng.update();
-        //b1.show();
-        t1.show();
+        b1.show();
+        //t1.show();
         graph.display();
     }
     return 0;

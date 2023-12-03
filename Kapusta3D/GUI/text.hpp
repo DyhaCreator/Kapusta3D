@@ -2,7 +2,10 @@ struct Text{
     static int LEFT() {return 0;}
     static int CENTER() {return 1;}
     static int RIGHT() {return 2;}
-    int centred = 0;
+    static int UP() {return 0;}
+    static int DOWN() {return 2;}
+    int centredX = 0;
+    int centredY = 0;
     std::string label = "Text";
     std::string font = "fonts/font.otf";
     int size = 20;
@@ -29,17 +32,39 @@ struct Text{
         this->col = col;
         return *this;
     }
-    Text& setCentred(int centred) {
-        this->centred = centred;
+    Text& setCentredX(int centred) {
+        this->centredX = centred;
+        return *this;
+    }
+    Text& setCentredY(int centred) {
+        this->centredY = centred;
         return *this;
     }
     void show() {
-        if (centred == LEFT()) {
-            graph.drawText(font, label, size, pos, col);
-        } else if (centred == RIGHT()) {
-            graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size(), pos.y), col);
-        } else if (centred == CENTER()) {
-            graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size() / 2, pos.y), col);
+        if (centredX == LEFT()) {
+            if (centredY == UP()) {
+                graph.drawText(font, label, size, pos, col);
+            } else if (centredY == CENTER()) {
+                graph.drawText(font, label, size, int2(pos.x, pos.y - size / 2), col);
+            } else if (centredY == DOWN()) {
+                graph.drawText(font, label, size, int2(pos.x, pos.y - size), col);
+            }
+        } else if (centredX == RIGHT()) {
+            if (centredY == UP()) {
+                graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size()), col);
+            } else if (centredY == CENTER()) {
+                graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size(), pos.y - size / 2), col);
+            } else if (centredY == DOWN()) {
+                graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size(), pos.y - size), col);
+            }
+        } else if (centredX == CENTER()) {
+            if (centredY == UP()) {
+                graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size() / 2, pos.y), col);
+            } else if (centredY == CENTER()) {
+                graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size() / 2, pos.y - size / 1.4), col);
+            } else if (centredY == DOWN()) {
+                graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size() / 2, pos.y - size), col);
+            }
         }
     }
 };
