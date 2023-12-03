@@ -6,6 +6,7 @@
 #include <string>
 
 #include "errors.hpp"
+#include "structs/color.hpp"
 
 //settings
 #include "data.hpp"
@@ -14,7 +15,6 @@ std::string name = d.Name;
 int Width = d.Width;
 int Height = d.Height;
 int FrameRate = d.FrameRate;
-#include "structs/color.hpp"
 color fillColor = color(255, 255, 255);
 
 //engine modules
@@ -33,6 +33,7 @@ bool MousePressed = false;
 #include "gameObj.hpp"
 #include "GUI/text.hpp"
 #include "GUI/button.hpp"
+#include "GUI/Image.hpp"
 
 /// Colors ///
 color __RED__ = color(255, 0, 0);

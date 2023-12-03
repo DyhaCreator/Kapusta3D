@@ -1,5 +1,7 @@
 echo "create data compiler..."
-g++ compiler/compiler_data.cpp -o compiler/compiler
+g++ -c compiler/compiler_data.cpp -I /SFML/include
+g++ compiler_data.o -o compiler/compiler -L /SFML/lib -lsfml-graphics -lsfml-window -lsfml-system
+rm compiler_data.o
 echo "compile data..."
 ./compiler/compiler
 echo "create App..."
