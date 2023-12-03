@@ -31,6 +31,7 @@ int2 MousePos;
 int MouseX, MouseY;
 bool MousePressed = false;
 #include "gameObj.hpp"
+#include "GUI/text.hpp"
 #include "GUI/button.hpp"
 
 class Engine {

@@ -7,6 +7,8 @@ mkdir Release 2> /dev/null
 g++ -c main.cpp -I /SFML/include
 g++ main.o -o Release/App -L /SFML/lib -lsfml-graphics -lsfml-window -lsfml-system
 rm main.o
+echo "Export fonts..."
+cp -r ./Kapusta3D/fonts ./Release
 echo "start>"
 cd Release
 ./App

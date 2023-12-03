@@ -45,6 +45,28 @@ public:
         this->window.draw(rectangle);
     }
 
+    void drawText() {
+        sf::Font font;
+
+        font.loadFromFile("fonts/font.otf");
+        sf::Text text;
+        // select the font
+        text.setFont(font); // font is a sf::Font
+
+        // set the string to display
+        text.setString("Hello world");
+
+        // set the character size
+        text.setCharacterSize(24); // in pixels, not points!
+
+        // set the color
+        text.setFillColor(sf::Color::Red);
+        text.setPosition(20, 20);
+
+        // inside the main loop, between window.clear() and window.display()
+        window.draw(text);
+    }
+
     void drawTriangle(Triangle triangle) {
 
     }

@@ -11,10 +11,12 @@ int main() {
     cout << "Hello, World!" << endl;
     Engine eng = Engine();
 
-    Button b1 = Button(&b1IsClicked, int2(20, 20), int2(200, 100));
+    //Button b1 = Button(&b1IsClicked, int2(20, 20), int2(200, 100));
+    Text t1 = Text();
     while (eng.isStarted) {
         eng.update();
-        b1.show();
+        //b1.show();
+        graph.drawText();
         graph.display();
     }
     return 0;
