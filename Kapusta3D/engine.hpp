@@ -34,6 +34,13 @@ bool MousePressed = false;
 #include "GUI/text.hpp"
 #include "GUI/button.hpp"
 
+/// Colors ///
+color __RED__ = color(255, 0, 0);
+color __GREEN__ = color(0, 255, 0);
+color __BLUE__ = color(0, 0, 255);
+color __BLACK__ = color(0, 0, 0);
+color __WHITE__ = color(255, 255, 255);
+
 class Engine {
 public:
     bool isStarted = true;

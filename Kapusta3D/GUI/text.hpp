@@ -17,11 +17,11 @@ struct Text{
         this->size = size;
         return *this;
     }
-    Text& setSize(int2 pos) {
+    Text& setPosition(int2 pos) {
         this->pos = pos;
         return *this;
     }
-    Text& setSize(color col) {
+    Text& setColor(color col) {
         this->col = col;
         return *this;
     }
