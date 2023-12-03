@@ -1,5 +1,4 @@
-class color{
-public:
+struct color{
     int r, g, b;
     color() {}
     color(int r, int g, int b) {

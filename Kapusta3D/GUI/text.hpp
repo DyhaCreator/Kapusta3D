@@ -1,4 +1,8 @@
 struct Text{
+    static int LEFT() {return 0;}
+    static int CENTER() {return 1;}
+    static int RIGHT() {return 2;}
+    int centred = 0;
     std::string label = "Text";
     std::string font = "fonts/font.otf";
     int size = 20;
@@ -25,7 +29,17 @@ struct Text{
         this->col = col;
         return *this;
     }
+    Text& setCentred(int centred) {
+        this->centred = centred;
+        return *this;
+    }
     void show() {
-        graph.drawText(font, label, size, pos, col);
+        if (centred == LEFT()) {
+            graph.drawText(font, label, size, pos, col);
+        } else if (centred == RIGHT()) {
+            graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size(), pos.y), col);
+        } else if (centred == CENTER()) {
+            graph.drawText(font, label, size, int2(pos.x - size / 1.5 * label.size() / 2, pos.y), col);
+        }
     }
 };
