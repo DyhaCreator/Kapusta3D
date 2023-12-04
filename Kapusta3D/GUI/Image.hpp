@@ -4,6 +4,6 @@ struct Image{
     std::vector<color>img();
     Image() {}
     void loadImage(std::string path) {
-        
+        int index = __DataExplorer__.getFileIndex(path);
     }
 };

@@ -10,11 +10,13 @@
 
 //settings
 #include "data.hpp"
-data d = data();
-std::string name = d.Name;
-int Width = d.Width;
-int Height = d.Height;
-int FrameRate = d.FrameRate;
+data __DATA__ = data();
+#include "data_explorer.hpp"
+DataExplorer __DataExplorer__ = DataExplorer();
+std::string name = __DATA__.Name;
+int Width = __DATA__.Width;
+int Height = __DATA__.Height;
+int FrameRate = __DATA__.FrameRate;
 color fillColor = color(255, 255, 255);
 
 //engine modules
