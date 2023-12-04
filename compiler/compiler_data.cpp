@@ -14,6 +14,11 @@ struct color{
     }
 };
 
+std::vector<std::string> getPaths() {
+    std::vector<std::string>a = std::vector<std::string>();
+    
+}
+
 int main() {
     sf::RenderWindow window(sf::VideoMode(200, 200), "Test");
     std::ofstream out("./Kapusta3D/data.hpp");
