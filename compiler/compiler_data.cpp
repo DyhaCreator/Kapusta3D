@@ -49,10 +49,7 @@ std::vector<std::string> execDirs(std::string folderName) {
 }
 
 std::vector<std::string> getPaths() {
-    std::vector<std::string>paths = std::vector<std::string>();
-    std::vector<std::string>dirs = execDirs("assets");
-    for (auto x : dirs)
-        std::cout << x << std::endl;
+    std::vector<std::string>paths = execDirs("assets");
     return paths;
 }
 
@@ -67,6 +64,7 @@ int main() {
     int FrameRate = find_frameRate(name_of_file);
     out << "struct Img{\n";
     out << "    std::string path;\n";
+    out << "    int width, height;\n";
     out << "    std::vector<color>img = std::vector<color>();\n";
     out << "    Img(){}\n";
     out << "};\n";
@@ -76,23 +74,33 @@ int main() {
     out << "    const int Height = " << Height << ";\n";
     out << "    const int FrameRate = " << FrameRate << ";\n";
     out << "    const std::vector<Img>images = {};\n";
+    std::vector<std::string>list = getPaths();
+    system("rm out");
     out << "    data() {\n";
     out << "        Img a = Img();\n";
     out << "        a.path = " << '"' << "./test.jpg" << '"' << ";\n";
-    std::vector<std::string>list = getPaths();
-    //system("rm out");
     sf::Image img;
-    img.loadFromFile("assets/test.jpg");
+    img.loadFromFile("assets/test.png");
     int width = img.getSize().x;
     int height = img.getSize().y;
+    out << "        a.width = " << width << ";\n";
+    out << "        a.height = " << height << ";\n";
     std::vector<color>a = std::vector<color>();
+    out << "        a.img = {\n            ";
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             sf::Color sfc = img.getPixel(x, y);
             color c = color(int(sfc.r), int(sfc.g), int(sfc.b));
             a.push_back(c);
+            if (x != width - 1 || y != height - 1) {
+                out << "color(" << int(sfc.r) << ", " << int(sfc.g) << ", " << int(sfc.b) << "), ";
+            } else {
+                out << "color(" << int(sfc.r) << ", " << int(sfc.g) << ", " << int(sfc.b) << ")";
+            }
         }
+        out << "\n            ";
     }
+    out << "};\n";
     out << "    }\n";
     out << "};\n";
     return 0;
