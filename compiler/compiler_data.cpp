@@ -88,6 +88,7 @@ int main() {
             out << int(data[i]) << ",";
         }
         out << "};\n";
+        out << "        files.push_back(a);\n";
     }
     out << "    }\n";
     out << "};\n";

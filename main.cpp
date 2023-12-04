@@ -6,6 +6,8 @@ using namespace std;
 int main() {
     cout << "Hello, World!" << endl;
     Engine eng = Engine();
+    Image img = Image();
+    img.loadImage("assets/test.png");
     while (eng.isStarted) {
         eng.update();
         graph.drawPixel(int2(0, 0), color(255, 0, 0));
