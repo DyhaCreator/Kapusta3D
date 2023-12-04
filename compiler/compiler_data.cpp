@@ -75,16 +75,19 @@ int main() {
     out << "    std::vector<Img>images = {};\n";
     std::vector<std::string>list = getPaths();
     system("rm out");
+    out << "    Img a;\n";
     out << "    data() {\n";
-    out << "        Img a = Img();\n";
-    out << "        a.path = " << '"' << "assets/test.png" << '"' << ";\n";
-    std::ifstream file("assets/test.png", std::ios::binary);
-    std::vector<unsigned char>data(std::istreambuf_iterator<char>(file), {});
-    out << "        a.data = {";
-    for (int i = 0; i < data.size(); i++) {
-        out << int(data[i]) << ",";
+    for (int j = 0; j < list.size(); j++) {
+        out << "        a = Img();\n";
+        out << "        a.path = " << '"' << list[j] << '"' << ";\n";
+        std::ifstream file(list[j], std::ios::binary);
+        std::vector<unsigned char>data(std::istreambuf_iterator<char>(file), {});
+        out << "        a.data = {";
+        for (int i = 0; i < data.size(); i++) {
+            out << int(data[i]) << ",";
+        }
+        out << "};\n";
     }
-    out << "};\n";
     out << "    }\n";
     out << "};\n";
     return 0;
