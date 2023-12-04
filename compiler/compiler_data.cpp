@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include "parse_settings.hpp"
 #include <SFML/Graphics.hpp>
 
@@ -14,9 +15,45 @@ struct color{
     }
 };
 
+std::vector<std::string> execDirs(std::string folderName) {
+    std::string cmd = "dir " + folderName + " -l > out";
+    char* command = cmd.data();
+    system(command);
+    std::ifstream in("out");
+    std::vector<std::string>ans = {};
+    std::vector<std::string>dirs = {};
+    getline(in, cmd);
+    std::vector<std::string>answerFromDir = {};
+    while (getline(in, cmd)) {
+        answerFromDir.push_back(cmd);
+    }
+    for (int i = 0; i < answerFromDir.size(); i++) {
+        if (answerFromDir[i][0] == 'd') {
+            std::stringstream ss(answerFromDir[i]);
+            std::string a;
+            ss >> a >> a >> a >> a >> a >> a >> a >> a >> a;
+            std::vector<std::string>dirsDop = execDirs(folderName + '/' + a);
+            for (auto x : dirsDop)
+                dirs.push_back(x);
+        } else {
+            std::stringstream ss(answerFromDir[i]);
+            std::string a;
+            ss >> a >> a >> a >> a >> a >> a >> a >> a >> a;
+            ans.push_back(folderName + '/' + a);
+        }
+    }
+    for (int i = 0; i < dirs.size(); i++) {
+        ans.push_back(dirs[i]);
+    }
+    return ans;
+}
+
 std::vector<std::string> getPaths() {
-    std::vector<std::string>a = std::vector<std::string>();
-    
+    std::vector<std::string>paths = std::vector<std::string>();
+    std::vector<std::string>dirs = execDirs("assets");
+    for (auto x : dirs)
+        std::cout << x << std::endl;
+    return paths;
 }
 
 int main() {
@@ -42,6 +79,8 @@ int main() {
     out << "    data() {\n";
     out << "        Img a = Img();\n";
     out << "        a.path = " << '"' << "./test.jpg" << '"' << ";\n";
+    std::vector<std::string>list = getPaths();
+    //system("rm out");
     sf::Image img;
     img.loadFromFile("assets/test.jpg");
     int width = img.getSize().x;
