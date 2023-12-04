@@ -78,6 +78,7 @@ int main() {
     out << "    Img a;\n";
     out << "    data() {\n";
     for (int j = 0; j < list.size(); j++) {
+        std::cout << list[j] << std::endl;
         out << "        a = Img();\n";
         out << "        a.path = " << '"' << list[j] << '"' << ";\n";
         std::ifstream file(list[j], std::ios::binary);
