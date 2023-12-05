@@ -6,11 +6,18 @@ using namespace std;
 int main() {
     cout << "Hello, World!" << endl;
     Engine eng = Engine();
-    Image img = Image();
-    img.loadImage("assets/test.png");
+    Text number = Text();
+    std::vector<Image>images = {};
     while (eng.isStarted) {
+        number.setLabel(to_string(images.size()));
+        Image img = Image();
+        img.loadImage("assets/64.png");
+        img.setPosition(rand() / 3000000, rand() / 4000000);
+        images.push_back(img);
         eng.update();
-        graph.drawPixel(int2(0, 0), color(255, 0, 0));
+        for (auto x : images)
+            x.show();
+        number.show();
         graph.display();
     }
     return 0;
