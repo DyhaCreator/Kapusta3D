@@ -37,6 +37,22 @@ public:
         return sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
 
+    std::vector<color> getFromFile(std::string name) {
+        std::vector<color>ans = {};
+        sf::Image img;
+        img.loadFromFile(name);
+        int Width = img.getSize().x;
+        int Height = img.getSize().y;
+        ans.push_back(color(Width, Height, 0));
+        for (int y = 0; y < Height; y++) {
+            for (int x = 0; x < Width; x++) {
+                sf::Color c = img.getPixel(x, y);
+                ans.push_back(color(c.r, c.g, c.b));
+            }
+        }
+        return ans;
+    }
+
     void drawPixel(int2 pos, color c) {
         sf::CircleShape point(0.5);
         point.setPosition(pos.x, pos.y);

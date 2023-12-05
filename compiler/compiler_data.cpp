@@ -2,8 +2,9 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <vector>
 #include "parse_settings.hpp"
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 
 struct color{
     int r, g, b;
@@ -54,7 +55,7 @@ std::vector<std::string> getPaths() {
 }
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "Test");
+    //sf::RenderWindow window(sf::VideoMode(200, 200), "Test");
     std::ofstream out("./Kapusta3D/data.hpp");
     std::string name_of_file = "./Kapusta3D/data.data";
     // parsing data
