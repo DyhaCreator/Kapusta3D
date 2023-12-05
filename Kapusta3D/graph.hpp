@@ -5,7 +5,7 @@ public:
     bool isOpen = true;
     sf::Event ev;
     sf::RenderWindow window = sf::RenderWindow(sf::VideoMode(Width, Height), name);
-
+    std::vector<point>screen = std::vector<point>();
     Graph() {
         this->window.setFramerateLimit(FrameRate);
     }
@@ -21,6 +21,7 @@ public:
         }
     }
     void display() {
+        
         this->window.display();
     }
     void background(color c) {

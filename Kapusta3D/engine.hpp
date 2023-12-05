@@ -27,6 +27,7 @@ color fillColor = color(255, 255, 255);
 #include "structs/edge.hpp"
 #include "structs/triangle.hpp"
 #include "structs/model.hpp"
+#include "structs/point.hpp"
 #include "graph.hpp"
 Graph graph = Graph();
 int2 MousePos;

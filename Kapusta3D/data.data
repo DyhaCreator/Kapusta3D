@@ -3,6 +3,6 @@
         "NameWindow":"MyApp",
         "Width":920,
         "Height":600,
-        "FrameRate":2500
+        "FrameRate":10000
     }
 }
