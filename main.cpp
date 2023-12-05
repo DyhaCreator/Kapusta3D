@@ -13,13 +13,13 @@ int main() {
     int n = 0;
     while (eng.isStarted) {
         eng.update();
-        for (int y = 0; y < 600; y++) {
+        /*for (int y = 0; y < 600; y++) {
             for (int x = 0; x < 920; x++) {
                 if (x + y > n) break;
                 graph.screen.push_back(point(int2(x, y), color(255, 0, 0)));
             }
             if (y > n) break;
-        }
+        }*/
         n++;
         /*number.setLabel(to_string(n++));
         images.push_back(img);

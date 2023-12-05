@@ -21,7 +21,6 @@ public:
         }
     }
     void display() {
-        
         this->window.display();
     }
     void background(color c) {
