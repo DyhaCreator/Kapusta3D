@@ -37,10 +37,10 @@ public:
         return sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
 
-    std::vector<color> getFromFile(std::string name) {
+    std::vector<color> getImageFromFile(const void* d, int index) {
         std::vector<color>ans = {};
         sf::Image img;
-        img.loadFromFile(name);
+        img.loadFromMemory(d, __DATA__.files[index].data.size());
         int Width = img.getSize().x;
         int Height = img.getSize().y;
         ans.push_back(color(Width, Height, 0));
